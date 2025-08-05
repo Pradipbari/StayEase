@@ -1,0 +1,57 @@
+<%- include('partials/head') %>
+</head>
+<body class="bg-gradient-to-br from-purple-300 via-pink-200 to-purple-100 min-h-screen flex flex-col">
+  <%- include('partials/nav') %>
+  <main class="container mx-auto bg-white/80 shadow-2xl p-4 sm:p-6 md:p-8 mt-20 max-w-full md:max-w-2xl rounded-3xl text-center flex flex-col items-center justify-center">
+    <div class="relative mb-4">
+      <div class="animate-bounce">
+        <svg class="w-20 h-20 text-purple-400 mx-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" />
+        </svg>
+      </div>
+      
+    </div>
+    <h2 class="text-6xl font-extrabold text-purple-600 mb-2 tracking-wide drop-shadow-lg animate-fade-in">404</h2>
+    <p class="text-2xl text-purple-700 mb-4 font-medium animate-fade-in delay-100">Oops! Page Not Found</p>
+    <p class="text-purple-500 mb-8 text-base sm:text-lg animate-fade-in delay-200">It looks like the page you're looking for doesn't exist or has been moved.</p>
+    <a
+      href="/"
+      class="bg-purple-500 hover:bg-purple-700 active:scale-95 transition-all duration-200 text-white py-2 px-6 rounded-lg shadow-md font-semibold text-base sm:text-lg flex items-center justify-center gap-2 animate-fade-in delay-300"
+      onmouseover="document.getElementById('main-heading').classList.add('animate-shake')"
+      onclick="this.classList.add('animate-spin'); setTimeout(()=>this.classList.remove('animate-spin'), 700);"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+      Go Back Home
+    </a>
+  </main>
+  <style>
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .animate-fade-in {
+      animation: fade-in 0.8s cubic-bezier(.4,0,.2,1) both;
+    }
+    .delay-100 { animation-delay: .1s; }
+    .delay-200 { animation-delay: .2s; }
+    .delay-300 { animation-delay: .3s; }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-2px); }
+      20%, 80% { transform: translateX(4px); }
+      30%, 50%, 70% { transform: translateX(-8px); }
+      40%, 60% { transform: translateX(8px); }
+    }
+    .animate-shake {
+      animation: shake 0.5s;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg);}
+    }
+    .animate-spin {
+      animation: spin 0.7s linear;
+    }
+  </style>
+</body>
+</html>

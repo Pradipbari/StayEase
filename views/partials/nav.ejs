@@ -1,0 +1,174 @@
+<header
+  class="bg-gradient-to-r from-purple-400 via-pink-300 to-purple-200 text-purple-900 p-4 shadow-xl"
+>
+  <nav class="container mx-auto flex justify-between items-center">
+    <a
+      href="/"
+      class="text-2xl font-extrabold tracking-wide flex items-center gap-2 group transition-all duration-300 hover:scale-105"
+    >
+      <span
+        class="<%= currentPage === 'index' ? 'bg-white text-purple-600 shadow-lg' : 'bg-gradient-to-r from-purple-200 to-pink-200' %> py-2 px-4 rounded-lg transition-all duration-300 group-hover:bg-white group-hover:text-purple-600"
+        >StayEase</span
+      >
+    </a>
+    <!-- Mobile menu button -->
+    <button
+      class="md:hidden flex items-center px-3 py-2 border rounded text-purple-900 border-purple-400 hover:bg-white hover:text-purple-600"
+      onclick="handleMenu()"
+      aria-label="Toggle navigation"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
+    <!-- Desktop menu -->
+    <ul class="hidden md:flex space-x-6 items-center">
+      <% if (isLoggedIn) { %> <% if (user && user.userType === 'guest') { %>
+      <li>
+        <a
+          href="/homes"
+          class="<%= currentPage === 'Home' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-4 rounded-lg transition-all duration-300"
+        >
+          Homes
+        </a>
+      </li>
+      <li>
+        <a
+          href="/favourites"
+          class="<%= currentPage === 'favourites' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-4 rounded-lg transition-all duration-300"
+        >
+          Favourites
+        </a>
+      </li>
+      <li>
+        <a
+          href="/bookings"
+          class="<%= currentPage === 'bookings' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-4 rounded-lg transition-all duration-300"
+        >
+          Bookings
+        </a>
+      </li>
+      <% } else{ %>
+      <li>
+        <a
+          href="/host/host-home-list"
+          class="<%= currentPage === 'host-homes' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-4 rounded-lg transition-all duration-300"
+        >
+          Host Homes
+        </a>
+      </li>
+      <li>
+        <a
+          href="/host/add-home"
+          class="<%= currentPage === 'addHome' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-4 rounded-lg transition-all duration-300"
+        >
+          Add Home
+        </a>
+      </li>
+      <% } %>
+      <li>
+        <form action="/logOut" method="post" class="inline">
+          <button
+            type="submit"
+            class="hover:bg-white hover:text-purple-600 py-2 px-4 rounded-lg transition-all duration-300 shadow-md"
+          >
+            Log out
+          </button>
+        </form>
+      </li>
+      <% } else { %>
+      <li>
+        <a
+          href="/login"
+          class="hover:bg-white hover:text-purple-600 py-2 px-4 rounded-lg transition-all duration-300 shadow-md"
+        >
+          Login
+        </a>
+      </li>
+      <li>
+        <a
+          href="/signup"
+          class="hover:bg-white hover:text-purple-600 py-2 px-4 rounded-lg transition-all duration-300 shadow-md"
+        >
+          Sign Up
+        </a>
+      </li>
+      <% } %>
+    </ul>
+  </nav>
+  <!-- Mobile menu -->
+  <div id="nav-dialog" class="md:hidden hidden">
+    <ul class="flex flex-col space-y-2 mt-4 px-4">
+      <% if (isLoggedIn) { %>
+      <li>
+        <a
+          href="/homes"
+          class="<%= currentPage === 'Home' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> block py-2 px-4 rounded-lg transition-all duration-300"
+        >
+          Homes
+        </a>
+      </li>
+      <li>
+        <a
+          href="/favourites"
+          class="<%= currentPage === 'favourites' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> block py-2 px-4 rounded-lg transition-all duration-300"
+        >
+          Favourites
+        </a>
+      </li>
+      <li>
+        <a
+          href="/bookings"
+          class="<%= currentPage === 'bookings' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> block py-2 px-4 rounded-lg transition-all duration-300"
+        >
+          Bookings
+        </a>
+      </li>
+
+      <li>
+        <form action="/logOut" method="post" class="inline">
+          <button
+            type="submit"
+            class="hover:bg-white hover:text-purple-600 block py-2 px-4 rounded-lg transition-all duration-300 shadow-md w-full text-left"
+          >
+            Log out
+          </button>
+        </form>
+      </li>
+      <% } else { %>
+      <li>
+        <a
+          href="/login"
+          class="hover:bg-white hover:text-purple-600 block py-2 px-4 rounded-lg transition-all duration-300 shadow-md"
+        >
+          Login
+        </a>
+      </li>
+      <li>
+        <a
+          href="/signup"
+          class="hover:bg-white hover:text-purple-600 block py-2 px-4 rounded-lg transition-all duration-300 shadow-md"
+        >
+          Sign Up
+        </a>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</header>
+<script>
+  const navDialog = document.getElementById("nav-dialog");
+  function handleMenu() {
+    navDialog.classList.toggle("hidden");
+  }
+</script>

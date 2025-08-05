@@ -1,0 +1,84 @@
+<%- include('../partials/head') %>
+</head>
+<body class="bg-gradient-to-br from-purple-300 via-pink-200 to-purple-100 min-h-screen">
+  <%- include('../partials/nav') %>
+  <main class="container mx-auto bg-white/80 shadow-2xl p-4 sm:p-6 md:p-8 mt-6 sm:mt-10 max-w-full md:max-w-8xl rounded-3xl">
+    <h2 id="main-heading" class="text-center font-bold mb-6 text-purple-600 text-2xl sm:text-3xl tracking-wide">
+      Welcome to StayEase
+    </h2>
+    <p class="text-center text-purple-800 mb-4 text-base sm:text-lg">
+      Discover handpicked homes and apartments for your next getaway. Enjoy comfort, convenience, and the best prices.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
+      <div class="bg-white/70 rounded-xl shadow p-4 flex-1 max-w-xs">
+      <h3 class="font-semibold text-purple-700 mb-1">🏆 Trusted Hosts</h3>
+      <p class="text-sm text-purple-600">All our listings are verified for your peace of mind.</p>
+      </div>
+      <div class="bg-white/70 rounded-xl shadow p-4 flex-1 max-w-xs">
+      <h3 class="font-semibold text-purple-700 mb-1">💸 Best Prices</h3>
+      <p class="text-sm text-purple-600">Competitive nightly rates with no hidden fees.</p>
+      </div>
+      <div class="bg-white/70 rounded-xl shadow p-4 flex-1 max-w-xs">
+      <h3 class="font-semibold text-purple-700 mb-1">🛡️ Secure Booking</h3>
+      <p class="text-sm text-purple-600">Book confidently with our secure payment system.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      <% registeredHomes.forEach(home => { %>
+      <div class="card flex flex-col bg-gradient-to-br from-purple-200 via-purple-100 to-pink-100 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden relative group transform hover:-translate-y-1 hover:scale-102 max-w-xs mx-auto">
+        
+          <img src="<%= home.photo %>" alt="House Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-xl">
+        
+        <div class="p-2 sm:p-3 space-y-1 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-base sm:text-lg font-semibold text-purple-800">🏠 <%= home.houseName %></h3>
+            <p class="text-purple-600 text-xs sm:text-sm">📍 <%= home.location %></p>
+            <p class="text-purple-700 font-medium text-xs sm:text-sm">💰 ₹<%= home.price %>/Night</p>
+            <p class="text-yellow-500 text-xs sm:text-sm"><strong>⭐ Rating:</strong> <%= home.rating %></p>
+          </div>
+          <%- include('../partials/booking',{home:home}) %>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </main>
+  <footer class="bg-gradient-to-br from-purple-500 via-purple-700 to-gray-800 text-gray-200 mt-10 rounded-t-3xl shadow-2xl">
+    <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+      <div class="text-center md:text-left">
+        <span class="font-bold text-lg text-purple-300">StayEase</span>
+        <p class="text-sm text-gray-400 mt-1">Your comfort, our priority.</p>
+        <p class="text-xs text-gray-400 mt-2">Email: support@stayease.com</p>
+        <p class="text-xs text-gray-400">Phone: +91 98765 43210</p>
+        <p class="text-xs text-gray-400">Address: 123 StayEase Lane, Mumbai, India</p>
+      </div>
+      <div class="flex flex-col md:flex-row items-center gap-4">
+        <a href="#" class="hover:text-purple-400 transition-colors text-sm">About</a>
+        <a href="#" class="hover:text-purple-400 transition-colors text-sm">Contact</a>
+        <a href="#" class="hover:text-purple-400 transition-colors text-sm">Privacy Policy</a>
+        <a href="#" class="hover:text-purple-400 transition-colors text-sm">Terms of Service</a>
+        <a href="#" class="hover:text-purple-400 transition-colors text-sm">FAQs</a>
+      </div>
+      <div class="text-center md:text-right text-xs text-gray-500">
+        &copy; <%= new Date().getFullYear() %> StayEase. All rights reserved.<br>
+        <span class="text-purple-400">Follow us:</span>
+        <a href="#" class="ml-1 hover:text-purple-300">Instagram</a> |
+        <a href="#" class="hover:text-purple-300">Facebook</a> |
+        <a href="#" class="hover:text-purple-300">Twitter</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Animate heading on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const heading = document.getElementById('main-heading');
+      heading.animate([
+        { opacity: 0, transform: 'translateY(-30px)' },
+        { opacity: 1, transform: 'translateY(0)' }
+      ], {
+        duration: 700,
+        fill: 'forwards'
+      });
+    });
+  </script>
+</body>
+</html>

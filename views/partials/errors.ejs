@@ -1,0 +1,31 @@
+<% if(errors.length>0){ %>
+<div
+  class="bg-pink-100 border border-pink-300 text-purple-700 px-4 py-3 rounded-lg mb-4 flex items-start space-x-2"
+  role="alert"
+>
+  <svg
+    class="w-5 h-5 text-pink-400 mt-1 flex-shrink-0"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <circle
+      cx="12"
+      cy="12"
+      r="10"
+      stroke="currentColor"
+      stroke-width="2"
+      fill="#fbc2eb"
+    />
+    <path stroke="#a18cd1" stroke-width="2" d="M12 8v4m0 4h.01" />
+  </svg>
+  <div>
+    <strong class="font-bold">Error!</strong>
+    <ul class="list-disc list-inside text-sm mt-1">
+      <% errors.forEach(error => { %>
+      <li><%= error %></li>
+      <% }); %>
+    </ul>
+  </div>
+</div>
+<% } %>

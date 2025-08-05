@@ -1,0 +1,9 @@
+ <div class="flex flex-row justify-around">
+                <a href="/host/edit-home/<%=home.id%>?editing=true" class="bg-blue-400 hover:bg-blue-300 p-2 rounded-lg">Edit</a>
+              <form action="/host/delete-home/<%= home.id %>" method="POST">
+                <button type="submit" class="bg-cyan-400 hover:bg-cyan-300 p-2 rounded-lg">Delete</button>
+              </form>
+              </div>
+
+
+              https://cloud.mongodb.com/v2/68464cfe2041796a0ffb3b20#/security/network/accessList

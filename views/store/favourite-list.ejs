@@ -1,0 +1,41 @@
+<%- include('../partials/head') %>
+</head>
+<body class="bg-gradient-to-br from-purple-300 via-pink-200 to-purple-100 min-h-screen">
+  <%- include('../partials/nav') %>
+  <main class="container mx-auto bg-white/80 shadow-2xl p-4 sm:p-6 md:p-8 mt-6 sm:mt-10 max-w-full md:max-w-8xl rounded-3xl">
+    <h2 id="main-heading" class="text-center font-bold mb-6 text-purple-600 text-2xl sm:text-3xl tracking-wide">
+      Welcome to AirBnB Index Page
+    </h2>
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      <% favouriteHomes.forEach(home => { %>
+        <div class="card bg-gradient-to-br from-purple-200 via-purple-100 to-pink-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden relative group transform hover:-translate-y-2 hover:scale-105" data-id="<%= home._id %>">
+          <img src="<%= home.photo %>" alt="House Photo" class="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-xl" />
+        <div class="p-3 sm:p-4 space-y-2">
+          <h3 class="text-lg sm:text-xl font-semibold text-purple-800">🏠 <%= home.houseName %></h3>
+          <p class="text-purple-600 text-sm sm:text-base">📍 <%= home.location %></p>
+          <p class="text-purple-700 font-medium text-sm sm:text-base">💰 ₹<%= home.price %></p>
+          <p class="text-yellow-500 text-sm sm:text-base"><strong>⭐ Rating:</strong> <%= home.rating %></p>
+            <form action="/favourites/delete/<%= home._id %>" method="POST" class="fav-remove-form">
+              <button class="book-btn bg-purple-500 hover:bg-purple-700 active:scale-95 transition-all duration-200 text-white px-3 py-2 rounded-md shadow-md mt-2 w-full font-semibold text-sm sm:text-base" type="submit">Remove from favourite</button>
+            </form>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+  <script>
+   
+    // Animate heading on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const heading = document.getElementById('main-heading');
+      heading.animate([
+        { opacity: 0, transform: 'translateY(-30px)' },
+        { opacity: 1, transform: 'translateY(0)' }
+      ], {
+        duration: 700,
+        fill: 'forwards'
+      });
+    });
+  </script>
+</body>
+</html>

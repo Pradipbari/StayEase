@@ -3,7 +3,7 @@ const User = require("../models/user");
 const fs = require("fs");
 exports.getAddHome = (req, res, next) => {
   res.render("host/edit-home", {
-    pageTitle: "Add Home to airbnb",
+    pageTitle: "Add Home to StayEase",
     currentPage: "addHome",
     editing: false,
     isLoggedIn: true,

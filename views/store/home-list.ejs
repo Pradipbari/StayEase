@@ -19,9 +19,9 @@
             <p class="text-purple-700 font-medium text-xs sm:text-sm">💰₹<%= home.price %>/Night</p>
             <p class="text-yellow-500 text-xs sm:text-sm"><strong>Rating:</strong> <%= home.rating %> ⭐</p>
           </div>
-          <div class="flex flex-col justify-between items-center mt-1 space-x-2">
+          <div class="flex flex-col gap-1 mt-2">
             <a href="/homes/<%= home._id %>"
-              class="bg-purple-500 w-full text-center hover:bg-purple-700 text-white font-bold rounded-xl px-4 py-1 transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 text-xs sm:text-sm">
+             class="bg-purple-500 flex-1 text-center hover:bg-purple-700 text-white font-bold rounded-xl px-4 py-1 transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 text-xs sm:text-sm">
               Details
             </a>
             <%- include('../partials/favourite',{home:home}) %>

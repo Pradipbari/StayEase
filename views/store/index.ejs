@@ -42,31 +42,41 @@
       <% }); %>
     </div>
   </main>
-  <footer class="bg-gradient-to-br from-purple-500 via-purple-700 to-gray-800 text-gray-200 mt-10 rounded-t-3xl shadow-2xl">
-    <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-      <div class="text-center md:text-left">
-        <span class="font-bold text-lg text-purple-300">StayEase</span>
-        <p class="text-sm text-gray-400 mt-1">Your comfort, our priority.</p>
-        <p class="text-xs text-gray-400 mt-2">Email: support@stayease.com</p>
-        <p class="text-xs text-gray-400">Phone: +91 98765 43210</p>
-        <p class="text-xs text-gray-400">Address: 123 StayEase Lane, Mumbai, India</p>
-      </div>
-      <div class="flex flex-col md:flex-row items-center gap-4">
-        <a href="#" class="hover:text-purple-400 transition-colors text-sm">About</a>
-        <a href="#" class="hover:text-purple-400 transition-colors text-sm">Contact</a>
-        <a href="#" class="hover:text-purple-400 transition-colors text-sm">Privacy Policy</a>
-        <a href="#" class="hover:text-purple-400 transition-colors text-sm">Terms of Service</a>
-        <a href="#" class="hover:text-purple-400 transition-colors text-sm">FAQs</a>
-      </div>
-      <div class="text-center md:text-right text-xs text-gray-500">
-        &copy; <%= new Date().getFullYear() %> StayEase. All rights reserved.<br>
-        <span class="text-purple-400">Follow us:</span>
-        <a href="#" class="ml-1 hover:text-purple-300">Instagram</a> |
-        <a href="#" class="hover:text-purple-300">Facebook</a> |
-        <a href="#" class="hover:text-purple-300">Twitter</a>
-      </div>
+  <footer class="bg-gradient-to-br from-pink-500 via-purple-600 to-pink-900 text-pink-50 mt-10 rounded-t-3xl shadow-2xl relative overflow-hidden">
+  <!-- Floating Glow Effect -->
+  <div class="absolute inset-0 bg-gradient-to-tr from-pink-400/20 via-purple-400/20 to-transparent blur-3xl opacity-50 pointer-events-none"></div>
+
+  <div class="container mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 relative z-10">
+    
+    <!-- Left Section -->
+    <div class="text-center md:text-left">
+      <span class="font-extrabold text-2xl bg-gradient-to-r from-pink-300 to-purple-300 bg-clip-text text-transparent">StayEase</span>
+      <p class="text-sm text-pink-200 mt-1">Your comfort, our priority.</p>
+      <p class="text-xs text-pink-300 mt-2">Email: support@stayease.com</p>
+      <p class="text-xs text-pink-300">Phone: +91 98765 43210</p>
+      <p class="text-xs text-pink-300">Address: 123 StayEase Lane, Mumbai, India</p>
     </div>
-  </footer>
+
+    <!-- Center Links -->
+    <div class="flex flex-col md:flex-row items-center gap-4">
+      <a href="#" class="hover:text-pink-300 transition-all duration-300 transform hover:scale-110">About</a>
+      <a href="#" class="hover:text-pink-300 transition-all duration-300 transform hover:scale-110">Contact</a>
+      <a href="#" class="hover:text-pink-300 transition-all duration-300 transform hover:scale-110">Privacy Policy</a>
+      <a href="#" class="hover:text-pink-300 transition-all duration-300 transform hover:scale-110">Terms of Service</a>
+      <a href="#" class="hover:text-pink-300 transition-all duration-300 transform hover:scale-110">FAQs</a>
+    </div>
+
+    <!-- Right Section -->
+    <div class="text-center md:text-right text-xs text-pink-200">
+      &copy; <%= new Date().getFullYear() %> StayEase. All rights reserved.<br>
+      <span class="text-pink-300 font-medium">Follow us:</span>
+      <a href="#" class="ml-1 hover:text-pink-200 hover:underline transition-all">Instagram</a> |
+      <a href="#" class="hover:text-pink-200 hover:underline transition-all">Facebook</a> |
+      <a href="#" class="hover:text-pink-200 hover:underline transition-all">Twitter</a>
+    </div>
+  </div>
+</footer>
+
   <script>
     // Animate heading on load
     document.addEventListener('DOMContentLoaded', () => {

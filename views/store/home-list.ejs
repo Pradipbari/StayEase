@@ -4,7 +4,7 @@
   <%- include('../partials/nav') %>
   <main class="container mx-auto bg-white/80 shadow-2xl p-4 sm:p-6 md:p-8 mt-6 sm:mt-10 max-w-full md:max-w-8xl rounded-3xl">
     <h2 id="main-heading" class="text-center font-bold mb-6 text-purple-600 text-2xl sm:text-3xl tracking-wide">
-      Here are your registered homes
+      Our Best Homes
     </h2>
     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
       <% registeredHomes.forEach(home => { %>
@@ -19,9 +19,9 @@
             <p class="text-purple-700 font-medium text-xs sm:text-sm">💰₹<%= home.price %>/Night</p>
             <p class="text-yellow-500 text-xs sm:text-sm"><strong>Rating:</strong> <%= home.rating %> ⭐</p>
           </div>
-          <div class="flex flex-row justify-between items-center mt-1 space-x-2">
+          <div class="flex flex-col justify-between items-center mt-1 space-x-2">
             <a href="/homes/<%= home._id %>"
-              class="bg-purple-500 hover:bg-purple-700 text-white font-bold rounded-xl px-3 py-1 transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 text-xs sm:text-sm">
+              class="bg-purple-500 w-full text-center hover:bg-purple-700 text-white font-bold rounded-xl px-4 py-1 transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 text-xs sm:text-sm">
               Details
             </a>
             <%- include('../partials/favourite',{home:home}) %>

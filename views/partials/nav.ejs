@@ -2,18 +2,23 @@
   class="bg-gradient-to-r from-purple-400 via-pink-300 to-purple-200 text-purple-900 p-4 shadow-xl"
 >
   <nav class="container mx-auto flex justify-between items-center">
+    <!-- Logo -->
     <a
       href="/"
-      class="text-2xl font-extrabold tracking-wide flex items-center gap-2 group transition-all duration-300 hover:scale-105"
+      class="text-xl sm:text-2xl font-extrabold tracking-wide flex items-center gap-2 group transition-all duration-300 hover:scale-105"
     >
       <span
         class="<%= currentPage === 'index' ? 'bg-white text-purple-600 shadow-lg' : 'bg-gradient-to-r from-purple-200 to-pink-200' %> py-2 px-4 rounded-lg transition-all duration-300 group-hover:bg-white group-hover:text-purple-600"
-        >StayEase</span
       >
+        StayEase
+      </span>
     </a>
-    <!-- Mobile menu button -->
+
+    <!-- Mobile View -->
+    <% if (isLoggedIn) { %>
+    <!-- Show hamburger menu only if logged in -->
     <button
-      class="md:hidden flex items-center px-3 py-2 border rounded text-purple-900 border-purple-400 hover:bg-white hover:text-purple-600"
+      class="md:hidden flex items-center px-3 py-2 border rounded text-purple-900 border-purple-400 hover:bg-white hover:text-purple-600 focus:outline-none focus:ring"
       onclick="handleMenu()"
       aria-label="Toggle navigation"
     >
@@ -31,56 +36,63 @@
         />
       </svg>
     </button>
-    <!-- Desktop menu -->
-    <ul class="hidden md:flex space-x-6 items-center">
+    <% } else { %>
+    <!-- Show Login button directly if NOT logged in -->
+    <a
+      href="/login"
+      class="md:hidden inline-block text-sm bg-white text-purple-600 py-2 px-4 rounded-lg shadow-md hover:bg-purple-100 transition-all"
+    >
+      Login
+    </a>
+    <% } %>
+
+    <!-- Desktop Menu (unchanged) -->
+    <ul
+      class="hidden md:flex space-x-4 lg:space-x-6 items-center text-sm lg:text-base"
+    >
       <% if (isLoggedIn) { %> <% if (user && user.userType === 'guest') { %>
       <li>
         <a
           href="/homes"
-          class="<%= currentPage === 'Home' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-4 rounded-lg transition-all duration-300"
+          class="<%= currentPage === 'Home' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-3 rounded-lg transition-all"
+          >Homes</a
         >
-          Homes
-        </a>
       </li>
       <li>
         <a
           href="/favourites"
-          class="<%= currentPage === 'favourites' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-4 rounded-lg transition-all duration-300"
+          class="<%= currentPage === 'favourites' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-3 rounded-lg transition-all"
+          >Favourites</a
         >
-          Favourites
-        </a>
       </li>
       <li>
         <a
           href="/bookings"
-          class="<%= currentPage === 'bookings' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-4 rounded-lg transition-all duration-300"
+          class="<%= currentPage === 'bookings' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-3 rounded-lg transition-all"
+          >Bookings</a
         >
-          Bookings
-        </a>
       </li>
-      <% } else{ %>
+      <% } else { %>
       <li>
         <a
           href="/host/host-home-list"
-          class="<%= currentPage === 'host-homes' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-4 rounded-lg transition-all duration-300"
+          class="<%= currentPage === 'host-homes' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-3 rounded-lg transition-all"
+          >Host Homes</a
         >
-          Host Homes
-        </a>
       </li>
       <li>
         <a
           href="/host/add-home"
-          class="<%= currentPage === 'addHome' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-4 rounded-lg transition-all duration-300"
+          class="<%= currentPage === 'addHome' ? 'bg-white text-purple-600 shadow-lg' : 'hover:bg-white hover:text-purple-600' %> py-2 px-3 rounded-lg transition-all"
+          >Add Home</a
         >
-          Add Home
-        </a>
       </li>
       <% } %>
       <li>
-        <form action="/logOut" method="post" class="inline">
+        <form action="/logOut" method="post">
           <button
             type="submit"
-            class="hover:bg-white hover:text-purple-600 py-2 px-4 rounded-lg transition-all duration-300 shadow-md"
+            class="hover:bg-white hover:text-purple-600 py-2 px-3 rounded-lg transition-all shadow-md"
           >
             Log out
           </button>
@@ -90,22 +102,14 @@
       <li>
         <a
           href="/login"
-          class="hover:bg-white hover:text-purple-600 py-2 px-4 rounded-lg transition-all duration-300 shadow-md"
+          class="hover:bg-white hover:text-purple-600 py-2 px-3 rounded-lg transition-all shadow-md"
+          >Login</a
         >
-          Login
-        </a>
-      </li>
-      <li>
-        <a
-          href="/signup"
-          class="hover:bg-white hover:text-purple-600 py-2 px-4 rounded-lg transition-all duration-300 shadow-md"
-        >
-          Sign Up
-        </a>
       </li>
       <% } %>
     </ul>
   </nav>
+
   <!-- Mobile menu -->
   <div id="nav-dialog" class="md:hidden hidden">
     <ul class="flex flex-col space-y-2 mt-4 px-4">
@@ -154,14 +158,14 @@
           Login
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a
           href="/signup"
           class="hover:bg-white hover:text-purple-600 block py-2 px-4 rounded-lg transition-all duration-300 shadow-md"
         >
           Sign Up
         </a>
-      </li>
+      </li> -->
       <% } %>
     </ul>
   </div>

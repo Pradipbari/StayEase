@@ -6,9 +6,7 @@
     <h2 id="main-heading" class="text-center font-bold mb-6 text-purple-600 text-2xl sm:text-3xl tracking-wide">
       My Bookings
     </h2>
-    <p class="text-center text-purple-800 mb-4 text-base sm:text-lg">
-      Bookings will appear here
-    </p>
+    
     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
       <% registeredHomes.forEach(home => { %>
       <div class="card flex flex-col bg-gradient-to-br from-purple-200 via-purple-100 to-pink-100 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden relative group transform hover:-translate-y-1 hover:scale-102 max-w-xs mx-auto">
@@ -26,31 +24,7 @@
       <% }); %>
     </div>
   </main>
-  <footer class="bg-gradient-to-br from-purple-500 via-purple-700 to-gray-800 text-gray-200 mt-10 rounded-t-3xl shadow-2xl">
-    <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-      <div class="text-center md:text-left">
-        <span class="font-bold text-lg text-purple-300">StayEase</span>
-        <p class="text-sm text-gray-400 mt-1">Your comfort, our priority.</p>
-        <p class="text-xs text-gray-400 mt-2">Email: support@stayease.com</p>
-        <p class="text-xs text-gray-400">Phone: +91 98765 43210</p>
-        <p class="text-xs text-gray-400">Address: 123 StayEase Lane, Mumbai, India</p>
-      </div>
-      <div class="flex flex-col md:flex-row items-center gap-4">
-        <a href="#" class="hover:text-purple-400 transition-colors text-sm">About</a>
-        <a href="#" class="hover:text-purple-400 transition-colors text-sm">Contact</a>
-        <a href="#" class="hover:text-purple-400 transition-colors text-sm">Privacy Policy</a>
-        <a href="#" class="hover:text-purple-400 transition-colors text-sm">Terms of Service</a>
-        <a href="#" class="hover:text-purple-400 transition-colors text-sm">FAQs</a>
-      </div>
-      <div class="text-center md:text-right text-xs text-gray-500">
-        &copy; <%= new Date().getFullYear() %> StayEase. All rights reserved.<br>
-        <span class="text-purple-400">Follow us:</span>
-        <a href="#" class="ml-1 hover:text-purple-300">Instagram</a> |
-        <a href="#" class="hover:text-purple-300">Facebook</a> |
-        <a href="#" class="hover:text-purple-300">Twitter</a>
-      </div>
-    </div>
-  </footer>
+  <%- include('../partials/footer') %>
   <script>
     // Animate heading on load
     document.addEventListener('DOMContentLoaded', () => {

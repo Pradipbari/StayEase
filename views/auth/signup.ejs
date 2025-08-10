@@ -35,12 +35,12 @@
         <div class="flex justify-center space-x-6 mb-2">
           <label class="radio-label flex items-center cursor-pointer">
             <input type="radio" name="userType" value="guest" id="guest" class="radio-checked" checked hidden>
-            <span class="px-2 py-1 rounded-lg" id="guestLabel">Guest</span>
+            <span class="px-2 py-1 rounded-lg" id="guestLabel" hidden>Guest</span>
           </label>
-          <label class="radio-label flex items-center cursor-pointer">
+          <!-- <label class="radio-label flex items-center cursor-pointer">
             <input type="radio" name="userType" value="host" id="host" class="radio-checked" hidden>
             <span class="px-2 py-1 rounded-lg" id="hostLabel">Host</span>
-          </label>
+          </label> -->
         </div>
         <!-- First & Last Name -->
         <div class="flex space-x-4">
@@ -72,7 +72,7 @@
         <!-- Terms Checkbox -->
         <div class="flex items-center space-x-2">
           <input type="checkbox" id="terms" name="terms" class="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded" required>
-          <label for="terms" class="text-sm text-purple-700">I agree to the <a href="#" class="text-purple-500 underline">Terms & Conditions</a></label>
+          <label for="terms" class="text-sm text-purple-700">I agree to the Terms & Conditions</label>
         </div>
         <!-- Submit Button -->
         <button type="submit" class="w-full purple-btn text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300" id="submitBtn">
